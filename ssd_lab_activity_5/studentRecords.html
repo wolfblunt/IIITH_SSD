@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>StudentRecord Page</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div>
+        <br>
+        <br>
+        <h1 align="center"> STUDENT RECORDS </h1>
+        <br>
+        <div class = "registerBox" align="center">
+            <input type = "text" id = "studentName" placeholder= "Student Name" onfocus="this.value=''" required>
+            <input type = "text" id = "studentRollNo" placeholder = "Roll Number" onfocus="this.value=''" required>
+            <button onclick="myFunction()" class="myBtn" style="background-color: Green;">Add New</button>
+        </div>
+        <br>
+        <br>
+        <table id="myTable">
+            <tr bgcolor="orange">
+              <th>Name</th>
+              <th>Roll Number</th>
+            </tr>
+          </table>
+        <br>
+        <br>
+        <br>
+          <div class = "delete" align="center">
+            <button onclick="deleteFunc()" class="delBtn" style="background-color: red;">Delete Last Entry</button>
+          </div>
+        
+          <script>
+                function deleteFunc() {
+                    var table = document.getElementById("myTable");
+                    var rowCount = table.rows.length;
+                    table.deleteRow(rowCount -1);
+                }
+          </script>
+          
+
+
+          <script>
+            function myFunction() {
+                var table = document.getElementById("myTable");
+                var row = table.insertRow(1);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                var studentName = document.getElementById("studentName").value;
+                var studentRollNo = document.getElementById("studentRollNo").value;
+                cell1.innerHTML = studentName;
+                cell2.innerHTML = studentRollNo;
+                document.getElementById("studentName").value=""
+                document.getElementById("studentRollNo").value=""
+            }
+        </script>
+          
+    </div>
+</body>
+
+</html>
