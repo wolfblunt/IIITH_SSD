@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Team Form</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="myscript.js"></script>
+</head>
+<body>
+<form name="teamForm" onsubmit="return validateForm()">
+    <h2>Team Form</h2>
+    <div class="row">
+        <label>Manager Name</label>
+        <input type="text" name="name" required>
+        <div class="error" id="nameErr"></div>
+    </div>
+    <div class="row">
+        <label>Group Email</label>
+        <input type="text" name="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" required>
+        <div class="error" id="emailErr"></div>
+    </div>
+    <div class="row">
+        <label>Server UserName</label>
+        <input oninput ="validateuserName" type="text" name="username">
+        <div class="error" id="userErr"></div>
+        <label for="userv" id="u1"></label>
+    </div>
+    <div class="row">
+        <label>Server Password</label>
+        <input type="password" name="password" id="ppass">
+        <div class="error" id="passwordErr"></div>
+    </div>
+    <div class="row">
+        <label>Server Password</label>
+        <input type="password" name="confirmpassword" id="conpass" oninput="passCheck()">
+        <div class="error" id="passwordErr"></div>
+        <p id ="p12"></p>
+    </div>
+    <div class="row">
+        <label>Team Lead</label>
+        <select name="teamlead" required>
+            <option>Aman</option>
+            <option>Apar</option>
+            <option>Nikhil</option>
+            <option>Piyush</option>
+            <option>Aryan</option>
+        </select> 
+        <div class="error" id="teamleadErr"></div>
+    </div>
+    <div class="row">
+    <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+            Aman</p>
+        <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+            Apar</p>
+        <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">
+            Aryan</p>
+      </div>
+      
+      <div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)" id="droptarget"></div>
+    </div>
+      <div class="row">
+        <input type="submit" value="Submit" onclick="passCheck()">
+    </div>
+            
+</form>
+</body>
+</html>
